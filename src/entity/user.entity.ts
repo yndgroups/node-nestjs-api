@@ -5,7 +5,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 export class User {
   // 主键
   @PrimaryGeneratedColumn({ name: 'user_id' })
-  userId: number;
+  userId: string;
 
   // 真实姓名
   @Column({ name: 'real_name' })

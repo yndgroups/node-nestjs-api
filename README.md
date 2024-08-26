@@ -46,6 +46,14 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
+## 浏览器访问
+
+![image-20240827034326014](docs/assets/image-20240827034326014.png)
+
+## Swagger-ui
+
+![image-20240827035539466](docs/assets/image-20240827035539466.png)
+
 ## Resources
 
 Check out a few resources that may come in handy when working with NestJS:
