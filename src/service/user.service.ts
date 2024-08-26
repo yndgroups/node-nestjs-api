@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from 'src/entity/user.entity';
+import { Resp } from '../core/http.response';
+import { User } from '../entity/user.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -11,12 +12,12 @@ export class UserService {
   ) {}
 
   // 查询所有数据
-  async findAll(): Promise<User[]> {
-    return await this.userRepository.find();
+  async findAll(): Promise<Resp<User[]>> {
+    return Resp.success(await this.userRepository.find());
   }
 
   // 根据ID查询详情
-  async findById(userId: string): Promise<User> {
-    return await this.userRepository.findOneBy({ userId });
+  async findById(userId: string): Promise<Resp<User>> {
+    return Resp.success(await this.userRepository.findOneBy({ userId }));
   }
 }

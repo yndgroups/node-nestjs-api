@@ -1,7 +1,8 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { UserService } from '../service/user.service';
-import { User } from 'src/entity/user.entity';
+import { User } from '../entity/user.entity';
 import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
+import { Resp } from '../core/http.response';
 
 @ApiTags('用户接口')
 @Controller('/user')
@@ -14,7 +15,7 @@ export class UserController {
     description: '获取全部数据',
   })
   @Get('/findAll')
-  async findAll(): Promise<User[]> {
+  async findAll(): Promise<Resp<User[]>> {
     return await this.userService.findAll();
   }
 
@@ -25,7 +26,7 @@ export class UserController {
     required: true,
   })
   @Get('/findById/:id')
-  async findById(@Param('id') id: string): Promise<User> {
+  async findById(@Param('id') id: string): Promise<Resp<User>> {
     return await this.userService.findById(id);
   }
 }
